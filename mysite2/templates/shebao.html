@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>社保查询</title>
+</head>
+<body>
+<h3>社保(五险一金)查询</h3>
+<form action="/shebao" method='POST'>
+    <div>
+    <label for="id_base">请输入基数：</label><input type="input" name="base" id="id_base">
+    </div>
+    <div>
+    <label>请输选择户口：</label>
+    <select name="is_city">
+        <option value ="1">城镇户口</option>
+        <option value ="0">农村户口</option>
+    </select>
+    </div>
+    <input type="submit" value="开始计算">
+</form>
+
+{% if base %}
+<table>
+    <p>|    项目   |   个人缴纳   |   单位缴纳   |</p>
+    <p>养老保险： {{ z_old }}元  | {{ d_old }}元</p>
+    <p>失业： {{ z_idleness }}元  | {{ d_idleness }}元</p>
+    <p>工伤保险： {{ z_compo }}元  | {{ d_compo }}元</p>
+    <p>生育保险： {{ z_bearing }}元  | {{ d_bearing }}元</p>
+    <p>医疗保险： {{ z_medical }}元  | {{ d_medical }}元</p>
+    <p>公积金： {{ z_fund }}元  | {{ d_fund }}元</p>
+    <p>个人缴费总和： {{ z_restur }}元 |</p>
+    <p>公司缴费总和： {{ d_restur }}元 |</p>
+    <p>纳入国家全额总和： {{ gj_restur }}元 |</p>
+
+</table>
+{% endif %}
+<table border="1">
+    <tr>
+        <th>
+            项目
+        </th>
+        <th>
+            个人缴纳
+        </th>
+        <th>
+            单位缴纳
+        </th>
+    </tr>
+    <tr>
+        <td>养老保险</td>
+        <td>{{ yl_gr }}</td>
+        <td>{{ yl_dw }}</td>
+    </tr>
+</table>
+</body>
+</html>

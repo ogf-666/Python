@@ -1,5 +1,3 @@
-# Python
-python小小白
+＃Python
 
-print("Hello World")
-
+小白的日常学python
